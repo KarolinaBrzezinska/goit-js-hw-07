@@ -34,13 +34,13 @@ $div.insertAdjacentHTML("afterbegin", readyHTMLToPushToWebsite)
 
 $div.addEventListener("click", (ev) => {
  ev.preventDefault();
- const $linkToBigImage = ev.target.dataset.source;
+ const $imageToUse = ev.target.dataset.source;
  console.log($imageToUse);
 
-	const instance = basicLightbox
+const instance = basicLightbox
     .create(
       `
-		<img width="1280" src ="${linkToBigImage}">
+		<img width="1280" src ="${imageToUse}">
 	`
     )
   instance.show();
