@@ -1,6 +1,6 @@
 import { galleryItems } from "./gallery-items.js";
 // Change code below this line
-const $div = document.querySelector("div");
+const $div = document.querySelector("div.gallery");
 
 // puste tablice na pogrupowane właściwościami image
 const imagePreview = [];
@@ -31,10 +31,21 @@ const readyHTMLToPushToWebsite = createGalleryHTML.join(" ");
 $div.insertAdjacentHTML("afterbegin", readyHTMLToPushToWebsite)
 
 // zablokowane przeniesienie na stronę po kliknięciu w obrazek
-window.addEventListener("click", (ev) => {
-	const element = ev.target;
-	const $nearest = element.closest(".gallery__link")
-	console.log($nearest.href);
-	ev.preventDefault();
-})
+
+$div.addEventListener("click", (ev) => {
+ ev.preventDefault();
+ const $linkToBigImage = ev.target.dataset.source;
+ console.log($imageToUse);
+
+	const instance = basicLightbox
+    .create(
+      `
+		<img width="1280" src ="${linkToBigImage}">
+	`
+    )
+  instance.show();
+
+
+} )
+
 
