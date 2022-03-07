@@ -7,7 +7,7 @@ const imagePreview = [];
 const imageOriginal = [];
 const imageAlt = [];
 
-//pusta tablica na kod HTML 
+//pusta tablica na kod HTML
 const createGalleryHTML = [];
 
 // uzupełnienie powyższych tablic
@@ -22,33 +22,31 @@ for (let i = 0; i < galleryItems.length; i++) {
 	const newHTML = `<div class="gallery__item"><a class="gallery__link" href="${imageOriginal[i]}"><img class="gallery__image" src ="${imagePreview[i]}" data-source="${imageOriginal[i]}"alt="${imageAlt[i]}"  ></a></div>`;
 
 	createGalleryHTML.push(newHTML);
-	}
+}
 
 // przekształcenie tablicy w ciąg znaków
 const readyHTMLToPushToWebsite = createGalleryHTML.join(" ");
 
 //dodanie na stronę fragmentu kodu, bez pętli
-$div.insertAdjacentHTML("afterbegin", readyHTMLToPushToWebsite)
+$div.insertAdjacentHTML("afterbegin", readyHTMLToPushToWebsite);
 
 // zablokowane przeniesienie na stronę po kliknięciu w obrazek
 
 $div.addEventListener("click", (ev) => {
- ev.preventDefault();
- const $imageToUse = ev.target.dataset.source;
- console.log($imageToUse);
+	ev.preventDefault();
+	const $imageToUse = ev.target.dataset.source;
+	console.log($imageToUse);
 
-const instance = basicLightbox
-    .create(
-      `
+	const instance = basicLightbox.create(
+		`
 		<img width="1280" src ="${$imageToUse}">
 	`
-    )
-  instance.show();
+	);
+	instance.show();
 
 	document.addEventListener("keydown", (ev) => {
 		if (ev.key === "Escape" && instance.visible()) {
 			instance.close();
-	}
- })
-
-} )
+		}
+	});
+});
