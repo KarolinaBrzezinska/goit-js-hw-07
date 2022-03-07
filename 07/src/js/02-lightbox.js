@@ -1,13 +1,10 @@
 import { galleryItems } from "./gallery-items.js";
 
-// Change code below this line
 const $div = document.querySelector(".gallery");
 
-// create three array
 const smallImage = [];
 const bigImage = [];
 const altImage = [];
-
 const HTMLToWebsite = [];
 
 for (const item of galleryItems) {
@@ -27,5 +24,5 @@ $div.insertAdjacentHTML("afterbegin", readyHTMLToWebsite);
 const lightbox = new SimpleLightbox(".gallery a", {
   captionSelector: "img",
   captionsData: "alt",
-  captionDelay: 250,
+  captionDelay: 250,  
 });
