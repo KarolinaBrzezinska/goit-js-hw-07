@@ -29,7 +29,7 @@ const readyHTMLToPushToWebsite = createGalleryHTML.join(" ");
 //dodanie na stronę fragmentu kodu, bez pętli
 $div.insertAdjacentHTML("afterbegin", readyHTMLToPushToWebsite);
 
-// zablokowane przeniesienie na stronę po kliknięciu w obrazek
+//zablokowane przeniesienie na stronę po kliknięciu w obrazek
 $div.addEventListener("click", (ev) => {
 	ev.preventDefault();
 	const $imageToUse = ev.target.dataset.source;
