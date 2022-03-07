@@ -20,7 +20,6 @@ for (const item of galleryItems) {
 // stworzenie kodu HTML
 for (let i = 0; i < galleryItems.length; i++) {
 	const newHTML = `<div class="gallery__item"><a class="gallery__link" href="${imageOriginal[i]}"><img class="gallery__image" src ="${imagePreview[i]}" data-source="${imageOriginal[i]}"alt="${imageAlt[i]}"  ></a></div>`;
-
 	createGalleryHTML.push(newHTML);
 }
 
@@ -31,7 +30,6 @@ const readyHTMLToPushToWebsite = createGalleryHTML.join(" ");
 $div.insertAdjacentHTML("afterbegin", readyHTMLToPushToWebsite);
 
 // zablokowane przeniesienie na stronę po kliknięciu w obrazek
-
 $div.addEventListener("click", (ev) => {
 	ev.preventDefault();
 	const $imageToUse = ev.target.dataset.source;
