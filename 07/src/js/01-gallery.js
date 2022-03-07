@@ -45,5 +45,10 @@ const instance = basicLightbox
     )
   instance.show();
 
+	document.addEventListener("keydown", (ev) => {
+		if (ev.key === "Escape" && instance.visible()) {
+			instance.close();
+	}
+ })
 
 } )
