@@ -35,15 +35,12 @@ $div.insertAdjacentHTML("afterbegin", readyHTMLToPushToWebsite);
 $div.addEventListener("click", (ev) => {
 	ev.preventDefault();
 	const $imageToUse = ev.target.dataset.source;
-	console.log($imageToUse);
-
 	const instance = basicLightbox.create(
 		`
 		<img width="1280" src ="${$imageToUse}">
 	`
 	);
 	instance.show();
-
 	document.addEventListener("keydown", (ev) => {
 		if (ev.key === "Escape" && instance.visible()) {
 			instance.close();
